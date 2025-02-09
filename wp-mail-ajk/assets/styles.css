@@ -3,7 +3,7 @@
 }
 
 .wp-mail-ajk-settings input[type="text"] {
-    width: 25vw;
+    width: 25vw !important;
     padding: 8px;
     margin: 4px 0;
     box-sizing: border-box;
