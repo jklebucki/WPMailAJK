@@ -7,6 +7,21 @@ if (!defined('ABSPATH')) {
 function wp_mail_ajk_mailer($phpmailer) {
     $options = get_option('wp_mail_ajk_settings');
 
+    // Ustawienie nagłówka "From"
+    if (!empty($options['from_email'])) {
+        $phpmailer->setFrom($options['from_email'], $options['from_name']);
+    }
+
+    // Ustawienie "Content-Type"
+    if (!empty($options['content_type'])) {
+        $phpmailer->ContentType = $options['content_type'];
+    }
+
+    // Ustawienie "Charset"
+    if (!empty($options['charset'])) {
+        $phpmailer->CharSet = $options['charset'];
+    }
+
     // Logowanie konfiguracji mailera
     wp_mail_ajk_log('Configuring mailer for provider: ' . $options['email_provider']);
 

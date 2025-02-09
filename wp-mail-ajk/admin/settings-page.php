@@ -33,6 +33,32 @@ $options = get_option('wp_mail_ajk_settings');
                     </select>
                 </td>
             </tr>
+            <tr>
+                <th scope="row"><?php _e('From Email', 'wp-mail-ajk'); ?></th>
+                <td><input type="text" name="wp_mail_ajk_settings[from_email]" value="<?php echo esc_attr($options['from_email']); ?>"></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('From Name', 'wp-mail-ajk'); ?></th>
+                <td><input type="text" name="wp_mail_ajk_settings[from_name]" value="<?php echo esc_attr($options['from_name']); ?>"></td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('Content-Type', 'wp-mail-ajk'); ?></th>
+                <td>
+                    <select name="wp_mail_ajk_settings[content_type]">
+                        <option value="text/plain" <?php selected($options['content_type'], 'text/plain'); ?>><?php _e('Plain Text', 'wp-mail-ajk'); ?></option>
+                        <option value="text/html" <?php selected($options['content_type'], 'text/html'); ?>><?php _e('HTML', 'wp-mail-ajk'); ?></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php _e('Charset', 'wp-mail-ajk'); ?></th>
+                <td>
+                    <select name="wp_mail_ajk_settings[charset]">
+                        <option value="UTF-8" <?php selected($options['charset'], 'UTF-8'); ?>>UTF-8</option>
+                        <option value="ISO-8859-1" <?php selected($options['charset'], 'ISO-8859-1'); ?>>ISO-8859-1</option>
+                    </select>
+                </td>
+            </tr>
 
             <tbody id="smtp_settings" class="email-settings">
                 <tr>
