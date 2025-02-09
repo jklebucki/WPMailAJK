@@ -33,9 +33,27 @@ function wp_mail_ajk_add_admin_menu() {
 }
 add_action('admin_menu', 'wp_mail_ajk_add_admin_menu');
 
+// Dodanie strony logów wtyczki
+function wp_mail_ajk_add_logs_page() {
+    add_submenu_page(
+        'wp-mail-ajk',
+        __('WP Mail AJK Logs', 'wp-mail-ajk'),
+        __('Logs', 'wp-mail-ajk'),
+        'manage_options',
+        'wp-mail-ajk-logs',
+        'wp_mail_ajk_logs_page'
+    );
+}
+add_action('admin_menu', 'wp_mail_ajk_add_logs_page');
+
 // Załadowanie pliku ustawień
 function wp_mail_ajk_settings_page() {
     require_once WP_MAIL_AJK_PATH . 'admin/settings-page.php';
+}
+
+// Załadowanie pliku logów
+function wp_mail_ajk_logs_page() {
+    require_once WP_MAIL_AJK_PATH . 'admin/logs-page.php';
 }
 
 // Rejestracja ustawień
@@ -43,6 +61,13 @@ function wp_mail_ajk_register_settings() {
     register_setting('wp_mail_ajk_options_group', 'wp_mail_ajk_settings');
 }
 add_action('admin_init', 'wp_mail_ajk_register_settings');
+
+// Funkcja do logowania wiadomości
+function wp_mail_ajk_log($message) {
+    $log_file = WP_MAIL_AJK_PATH . 'logs/mail.log';
+    $timestamp = date("Y-m-d H:i:s");
+    file_put_contents($log_file, "[$timestamp] $message\n", FILE_APPEND);
+}
 
 // Załadowanie skryptów i stylów z nowej lokalizacji
 function wp_mail_ajk_enqueue_admin_scripts($hook) {
