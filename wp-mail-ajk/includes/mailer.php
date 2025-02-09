@@ -35,6 +35,29 @@ function wp_mail_ajk_mailer($phpmailer) {
         $phpmailer->Password = $options['exchange_online_pass'];
         $phpmailer->SMTPSecure = 'tls';
         $phpmailer->SMTPAuth = true;
+    } elseif ($options['email_provider'] === 'google') {
+        $phpmailer->Host = 'smtp.gmail.com';
+        $phpmailer->Port = 587;
+        $phpmailer->Username = $options['google_user'];
+        $phpmailer->Password = $options['google_pass'];
+        $phpmailer->SMTPSecure = 'tls';
+        $phpmailer->SMTPAuth = true;
+    } elseif ($options['email_provider'] === 'sendgrid') {
+        $phpmailer->isSMTP();
+        $phpmailer->Host = 'smtp.sendgrid.net';
+        $phpmailer->Port = 587;
+        $phpmailer->SMTPAuth = true;
+        $phpmailer->Username = 'apikey';
+        $phpmailer->Password = $options['sendgrid_api_key'];
+        $phpmailer->SMTPSecure = 'tls';
+    } elseif ($options['email_provider'] === 'mailgun') {
+        $phpmailer->isSMTP();
+        $phpmailer->Host = 'smtp.mailgun.org';
+        $phpmailer->Port = 587;
+        $phpmailer->SMTPAuth = true;
+        $phpmailer->Username = $options['mailgun_user'];
+        $phpmailer->Password = $options['mailgun_pass'];
+        $phpmailer->SMTPSecure = 'tls';
     }
 }
 

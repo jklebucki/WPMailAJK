@@ -85,6 +85,35 @@ $options = get_option('wp_mail_ajk_settings');
                 </tr>
             </tbody>
 
+            <tbody id="google_settings" class="email-settings">
+                <tr>
+                    <th><?php _e('Google Username', 'wp-mail-ajk'); ?></th>
+                    <td><input type="text" name="wp_mail_ajk_settings[google_user]" value="<?php echo esc_attr($options['google_user']); ?>"></td>
+                </tr>
+                <tr>
+                    <th><?php _e('Google Password', 'wp-mail-ajk'); ?></th>
+                    <td><input type="password" name="wp_mail_ajk_settings[google_pass]" value="<?php echo esc_attr($options['google_pass']); ?>"></td>
+                </tr>
+            </tbody>
+
+            <tbody id="sendgrid_settings" class="email-settings">
+                <tr>
+                    <th><?php _e('SendGrid API Key', 'wp-mail-ajk'); ?></th>
+                    <td><input type="text" name="wp_mail_ajk_settings[sendgrid_api_key]" value="<?php echo esc_attr($options['sendgrid_api_key']); ?>"></td>
+                </tr>
+            </tbody>
+
+            <tbody id="mailgun_settings" class="email-settings">
+                <tr>
+                    <th><?php _e('Mailgun Username', 'wp-mail-ajk'); ?></th>
+                    <td><input type="text" name="wp_mail_ajk_settings[mailgun_user]" value="<?php echo esc_attr($options['mailgun_user']); ?>"></td>
+                </tr>
+                <tr>
+                    <th><?php _e('Mailgun Password', 'wp-mail-ajk'); ?></th>
+                    <td><input type="password" name="wp_mail_ajk_settings[mailgun_pass]" value="<?php echo esc_attr($options['mailgun_pass']); ?>"></td>
+                </tr>
+            </tbody>
+
         </table>
         <?php submit_button(__('Save Changes', 'wp-mail-ajk')); ?>
     </form>

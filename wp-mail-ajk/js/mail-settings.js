@@ -8,6 +8,12 @@ jQuery(document).ready(function($) {
             $('#exchange_settings').show();
         } else if (selectedProvider === 'exchange_online') {
             $('#exchange_online_settings').show();
+        } else if (selectedProvider === 'google') {
+            $('#google_settings').show();
+        } else if (selectedProvider === 'sendgrid') {
+            $('#sendgrid_settings').show();
+        } else if (selectedProvider === 'mailgun') {
+            $('#mailgun_settings').show();
         }
     }
     
