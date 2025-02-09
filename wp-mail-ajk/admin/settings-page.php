@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 $options = get_option('wp_mail_ajk_settings');
 
 ?>
-<div class="wrap">
+<div class="wrap wp-mail-ajk-settings">
     <h1><?php _e('WP Mail AJK - Email Configuration', 'wp-mail-ajk'); ?></h1>
     <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated']): ?>
         <div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible">
