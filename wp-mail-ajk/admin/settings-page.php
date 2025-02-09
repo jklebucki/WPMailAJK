@@ -10,7 +10,10 @@ $options = get_option('wp_mail_ajk_settings');
 <div class="wrap">
     <h1><?php _e('WP Mail AJK - Email Configuration', 'wp-mail-ajk'); ?></h1>
     <form method="post" action="options.php">
-        <?php settings_fields('wp_mail_ajk_options_group'); ?>
+        <?php 
+        settings_fields('wp_mail_ajk_options_group'); 
+        do_settings_sections('wp_mail_ajk_options_group');
+        ?>
         <table class="form-table">
             <tr>
                 <th scope="row"><?php _e('Email Provider', 'wp-mail-ajk'); ?></th>

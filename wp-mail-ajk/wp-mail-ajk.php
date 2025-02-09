@@ -38,6 +38,12 @@ function wp_mail_ajk_settings_page() {
     require_once WP_MAIL_AJK_PATH . 'admin/settings-page.php';
 }
 
+// Rejestracja ustawień
+function wp_mail_ajk_register_settings() {
+    register_setting('wp_mail_ajk_options_group', 'wp_mail_ajk_settings');
+}
+add_action('admin_init', 'wp_mail_ajk_register_settings');
+
 // Załadowanie skryptów i stylów z nowej lokalizacji
 function wp_mail_ajk_enqueue_admin_scripts($hook) {
     if ($hook !== 'settings_page_wp-mail-ajk') {
