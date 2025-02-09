@@ -9,6 +9,11 @@ $options = get_option('wp_mail_ajk_settings');
 ?>
 <div class="wrap">
     <h1><?php _e('WP Mail AJK - Email Configuration', 'wp-mail-ajk'); ?></h1>
+    <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated']): ?>
+        <div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible">
+            <p><strong><?php _e('Settings saved.', 'wp-mail-ajk'); ?></strong></p>
+        </div>
+    <?php endif; ?>
     <form method="post" action="options.php">
         <?php 
         settings_fields('wp_mail_ajk_options_group'); 

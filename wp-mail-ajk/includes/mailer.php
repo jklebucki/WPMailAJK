@@ -68,4 +68,5 @@ function wp_mail_ajk_mailer($phpmailer) {
     }
 }
 
+// Hook into WordPress' phpmailer_init action to modify the mailer
 add_action('phpmailer_init', 'wp_mail_ajk_mailer');
