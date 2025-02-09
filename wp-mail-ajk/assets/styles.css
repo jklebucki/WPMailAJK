@@ -11,9 +11,17 @@
     border-radius: 4px;
 }
 
-.wp-mail-ajk-settings input[type="password"], 
-.wp-mail-ajk-settings select {
+.wp-mail-ajk-settings input[type="password"] {
     width: 30vw !important;
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.wp-mail-ajk-settings select {
+    width: 15vw !important;
     padding: 8px;
     margin: 4px 0;
     box-sizing: border-box;
@@ -27,7 +35,12 @@
     outline: none;
 }
 
-.wp-mail-ajk-settings input[type="password"]:focus, 
+.wp-mail-ajk-settings input[type="password"]:focus {
+    border-color: #007cba;
+    box-shadow: 0 0 5px rgba(0, 124, 186, 0.5);
+    outline: none;
+}
+
 .wp-mail-ajk-settings select:focus {
     border-color: #007cba;
     box-shadow: 0 0 5px rgba(0, 124, 186, 0.5);
