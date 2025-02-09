@@ -21,20 +21,17 @@ define('WP_MAIL_AJK_URL', plugin_dir_url(__FILE__));
 // Załadowanie plików
 require_once WP_MAIL_AJK_PATH . 'includes/mailer.php';
 
-// Dodanie strony ustawień wtyczki
+// Dodanie głównego menu wtyczki i podstrony logów
 function wp_mail_ajk_add_admin_menu() {
-    add_options_page(
+    add_menu_page(
         __('WP Mail AJK Settings', 'wp-mail-ajk'),
         __('WP Mail AJK', 'wp-mail-ajk'),
         'manage_options',
         'wp-mail-ajk',
-        'wp_mail_ajk_settings_page'
+        'wp_mail_ajk_settings_page',
+        'dashicons-email-alt'
     );
-}
-add_action('admin_menu', 'wp_mail_ajk_add_admin_menu');
 
-// Dodanie strony logów wtyczki
-function wp_mail_ajk_add_logs_page() {
     add_submenu_page(
         'wp-mail-ajk',
         __('WP Mail AJK Logs', 'wp-mail-ajk'),
@@ -44,7 +41,7 @@ function wp_mail_ajk_add_logs_page() {
         'wp_mail_ajk_logs_page'
     );
 }
-add_action('admin_menu', 'wp_mail_ajk_add_logs_page');
+add_action('admin_menu', 'wp_mail_ajk_add_admin_menu');
 
 // Załadowanie pliku ustawień
 function wp_mail_ajk_settings_page() {
@@ -71,7 +68,7 @@ function wp_mail_ajk_log($message) {
 
 // Załadowanie skryptów i stylów z nowej lokalizacji
 function wp_mail_ajk_enqueue_admin_scripts($hook) {
-    if ($hook !== 'settings_page_wp-mail-ajk') {
+    if ($hook !== 'toplevel_page_wp-mail-ajk' && $hook !== 'wp-mail-ajk_page_wp-mail-ajk-logs') {
         return;
     }
     wp_enqueue_script('wp-mail-ajk-js', WP_MAIL_AJK_URL . 'js/mail-settings.js', ['jquery'], null, true);
