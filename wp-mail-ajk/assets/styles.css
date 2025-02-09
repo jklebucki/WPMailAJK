@@ -1,0 +1,37 @@
+.email-settings {
+    display: none;
+}
+
+.wp-mail-ajk-settings input[type="text"], 
+.wp-mail-ajk-settings input[type="password"], 
+.wp-mail-ajk-settings select {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.wp-mail-ajk-settings input[type="text"]:focus, 
+.wp-mail-ajk-settings input[type="password"]:focus, 
+.wp-mail-ajk-settings select:focus {
+    border-color: #007cba;
+    box-shadow: 0 0 5px rgba(0, 124, 186, 0.5);
+    outline: none;
+}
+
+.wp-mail-ajk-settings button, 
+.wp-mail-ajk-settings input[type="submit"] {
+    background-color: #007cba;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.wp-mail-ajk-settings button:hover, 
+.wp-mail-ajk-settings input[type="submit"]:hover {
+    background-color: #005a9c;
+}
